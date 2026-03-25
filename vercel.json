@@ -1,14 +1,19 @@
 {
-  "cleanUrls": true,
   "functions": {
-    "api/*.php": { "runtime": "vercel-php@0.7.2" }
+    "api/*.php": {
+      "runtime": "vercel-php@0.7.0"
+    }
   },
-  "rewrites": [
-    { "source": "/", "destination": "/api/index.php" },
-    { "source": "/index.php", "destination": "/api/index.php" },
-    { "source": "/admin", "destination": "/api/admin.php" },
-    { "source": "/product", "destination": "/api/product.php" },
-    { "source": "/login", "destination": "/api/login.php" },
-    { "source": "/logout", "destination": "/api/logout.php" }
+  "routes": [
+    { "src": "/api/index.php", "dest": "/api/index.php" },
+    { "src": "/api/admin.php", "dest": "/api/admin.php" },
+    { "src": "/api/login.php", "dest": "/api/login.php" },
+    { "src": "/api/logout.php", "dest": "/api/logout.php" },
+    { "src": "/api/product.php", "dest": "/api/product.php" },
+    { "src": "/admin", "dest": "/api/admin.php" },
+    { "src": "/login", "dest": "/api/login.php" },
+    { "src": "/logout", "dest": "/api/logout.php" },
+    { "src": "/product", "dest": "/api/product.php" },
+    { "src": "/(.*)", "dest": "/api/index.php" }
   ]
 }
