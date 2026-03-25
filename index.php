@@ -1,9 +1,3 @@
-<?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-require_once 'functions.php';
-$data = loadData();
-?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -66,8 +60,8 @@ $data = loadData();
     <!-- HERO SECTION -->
     <section id="home" class="hero">
         <div class="hero-content">
-            <h1 data-i18n="hero.title"><?php echo htmlspecialchars($data['hero']['title'] ?? 'Excelência em Estética Automotiva, Tintas, Complementos Automotivos e Gelo Seco'); ?></h1>
-            <p data-i18n="hero.subtitle"><?php echo htmlspecialchars($data['hero']['subtitle'] ?? 'Produtos premium para transformar seu veículo'); ?></p>
+            <h1 data-i18n="hero.title">Excelência em Estética Automotiva, Tintas, Complementos Automotivos e Gelo Seco</h1>
+            <p data-i18n="hero.subtitle">Produtos premium para transformar seu veículo</p>
         </div>
         
         <div class="marcas-carousel">
@@ -102,7 +96,7 @@ $data = loadData();
 
     <!-- BARRA DE DESTAQUE -->
     <div class="highlight-bar">
-        <p><?php echo htmlspecialchars($data['hero']['highlight'] ?? 'Referência em Estética Automotiva e Gelo Seco'); ?></p>
+        <p>Referência em Proteção Cerâmica, produtos de estética automotiva, funilaria e pintura e gelo seco em Bauru e região</p>
     </div>
 
     <!-- PRODUTOS -->
@@ -112,18 +106,66 @@ $data = loadData();
             <p class="section-subtitle" data-i18n="section.products.sub">Qualidade e durabilidade garantidas</p>
             
             <div class="produtos-grid">
-                <?php foreach ($data['products'] as $product): ?>
-                <a href="product.php?id=<?php echo $product['id']; ?>" class="produto-card" style="text-decoration: none; color: inherit; display: block;">
+                <!-- Produto 1 -->
+                <div class="produto-card">
                     <div class="produto-img">
-                        <img src="<?php echo $product['image']; ?>" alt="<?php echo htmlspecialchars($product['title']); ?>">
+                        <img src="geloseco.png" alt="Gelo Seco">
                     </div>
                     <div style="padding: 10px;">
-                        <h3><?php echo htmlspecialchars($product['title']); ?></h3>
-                        <p><?php echo htmlspecialchars($product['desc']); ?></p>
-                        <span style="color: #1a1a2e; font-weight: bold; display: block; margin-top: 10px;">Ver Catálogo <i class="fas fa-chevron-right"></i></span>
+                        <h3>Gelo Seco</h3>
+                        <p>Solução ideal para refrigeração, transporte de perecíveis e efeitos especiais.</p>
                     </div>
-                </a>
-                <?php endforeach; ?>
+                </div>
+                <!-- Produto 2 -->
+                <div class="produto-card">
+                    <div class="produto-img">
+                        <img src="tintaspremium.png" alt="Tintas Premium">
+                    </div>
+                    <div style="padding: 10px;">
+                        <h3>Tintas Premium</h3>
+                        <p>Tintas automotivas de alta qualidade com excelente cobertura e durabilidade.</p>
+                    </div>
+                </div>
+                <!-- Produto 3 -->
+                <div class="produto-card">
+                    <div class="produto-img">
+                        <img src="diluentesevernizes.png" alt="Diluentes e Vernizes">
+                    </div>
+                    <div style="padding: 10px;">
+                        <h3>Diluentes e Vernizes</h3>
+                        <p>Diluentes especiais e vernizes para proteção e brilho duradouro.</p>
+                    </div>
+                </div>
+                <!-- Produto 4 -->
+                <div class="produto-card">
+                    <div class="produto-img">
+                        <img src="protecaoceramica.png" alt="Proteção Cerâmica">
+                    </div>
+                    <div style="padding: 10px;">
+                        <h3>Proteção Cerâmica</h3>
+                        <p>Revestimento cerâmico para proteção extrema e brilho espelhado.</p>
+                    </div>
+                </div>
+                <!-- Produto 5 -->
+                <div class="produto-card">
+                    <div class="produto-img">
+                        <img src="produtosdelimpeza.png" alt="Produtos de Limpeza">
+                    </div>
+                    <div style="padding: 10px;">
+                        <h3>Produtos de Limpeza</h3>
+                        <p>Limpadores específicos para manutenção e conservação de pintura.</p>
+                    </div>
+                </div>
+                <!-- Produto 6 -->
+                <div class="produto-card">
+                    <div class="produto-img">
+                        <img src="polidoresespeciais.png" alt="Polidores Especiais">
+                    </div>
+                    <div style="padding: 10px;">
+                        <h3>Polidores Especiais</h3>
+                        <p>Polimentos que corrigem imperfeições e devolvem o brilho original.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -159,59 +201,24 @@ $data = loadData();
         <div class="container">
             <div class="sobre-content">
                 <div class="sobre-text">
-                    <h2 data-i18n="section.about"><?php echo htmlspecialchars($data['about']['title'] ?? 'Sobre a Solgas'); ?></h2>
-                    <p><?php echo nl2br(htmlspecialchars($data['about']['text1'] ?? '')); ?></p>
-                    <p><?php echo nl2br(htmlspecialchars($data['about']['text2'] ?? '')); ?></p>
+                    <h2 data-i18n="section.about">Sobre a Solgas</h2>
+                    <p>Com anos de experiência no mercado automotivo, a Solgas é especializada em oferecer soluções premium para pintura e estética automotiva.</p>
+                    <p>Nossos produtos são escolhidos criteriosamente para garantir a máxima qualidade e durabilidade. Contamos com uma equipe de profissionais altamente treinados e equipamentos de ponta.</p>
                     
                     <div class="stats">
-                        <?php foreach (($data['about']['stats'] ?? []) as $stat): ?>
                         <div class="stat">
-                            <h3><?php echo htmlspecialchars($stat['value']); ?></h3>
-                            <p><?php echo htmlspecialchars($stat['label']); ?></p>
+                            <h3>500+</h3>
+                            <p>Clientes Satisfeitos</p>
                         </div>
-                        <?php endforeach; ?>
+                        <div class="stat">
+                            <h3>100%</h3>
+                            <p>Satisfação Garantida</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- GALERIA DE VÍDEOS -->
-    <?php if (!empty($data['media']['videos'])): ?>
-    <section id="videos" class="produtos" style="background: #121212; color: #fff;">
-        <div class="container">
-            <h2 class="section-title" style="color: #FFD700;">Vídeos e Demonstrações</h2>
-            <p class="section-subtitle" style="color: #ccc;">Confira nossos produtos em ação</p>
-            
-            <div class="produtos-grid">
-                <?php foreach ($data['media']['videos'] as $video): ?>
-                <div class="produto-card" style="background: #1e1e1e; border: 1px solid #333;">
-                    <div class="video-container" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-                        <?php if ($video['type'] === 'link'): ?>
-                            <?php 
-                                $url = $video['url'];
-                                if (strpos($url, 'youtube.com/watch?v=') !== false) {
-                                    $url = str_replace('watch?v=', 'embed/', $url);
-                                } elseif (strpos($url, 'youtu.be/') !== false) {
-                                    $url = str_replace('youtu.be/', 'youtube.com/embed/', $url);
-                                }
-                            ?>
-                            <iframe src="<?php echo $url; ?>" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen></iframe>
-                        <?php else: ?>
-                            <video controls style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
-                                <source src="<?php echo $video['url']; ?>" type="video/mp4">
-                            </video>
-                        <?php endif; ?>
-                    </div>
-                    <div style="padding: 15px;">
-                        <h3 style="color: #FFD700; margin: 0; font-size: 1.1rem;"><?php echo htmlspecialchars($video['title']); ?></h3>
-                    </div>
-                </div>
-                <?php endforeach; ?>
-            </div>
-        </div>
-    </section>
-    <?php endif; ?>
 
     <!-- CONTATO -->
     <section id="contato" class="contato">
@@ -223,21 +230,21 @@ $data = loadData();
                         <i class="fas fa-map-marker-alt"></i>
                         <div>
                             <h3>Endereço</h3>
-                            <p><?php echo nl2br(htmlspecialchars($data['contact']['address'] ?? '')); ?></p>
+                            <p>Rua Benedito Ribeiro dos Santos 8-6, Geisel, Bauru - SP</p>
                         </div>
                     </div>
                     <div class="info-item">
                         <i class="fas fa-phone"></i>
                         <div>
                             <h3>Telefone</h3>
-                            <p><?php echo htmlspecialchars($data['contact']['phone'] ?? ''); ?></p>
+                            <p>(14) 98122-3322</p>
                         </div>
                     </div>
                     <div class="info-item">
                         <i class="fas fa-envelope"></i>
                         <div>
                             <h3>Email</h3>
-                            <p><?php echo htmlspecialchars($data['contact']['email'] ?? ''); ?></p>
+                            <p>contato@solgas.com.br</p>
                         </div>
                     </div>
                 </div>
@@ -264,7 +271,6 @@ $data = loadData();
                     <ul>
                         <li><a href="#produtos">Produtos</a></li>
                         <li><a href="#sobre">Sobre</a></li>
-                        <li><a href="login.php" style="color: #FFE600;"><i class="fas fa-lock"></i> Admin</a></li>
                     </ul>
                 </div>
             </div>

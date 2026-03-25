@@ -1,4 +1,4 @@
-const CACHE_NAME = 'solgas-cache-v1';
+const CACHE_NAME = 'solgas-cache-v3';
 const FILES_TO_CACHE = [
   './',
   './index.html',
@@ -25,8 +25,8 @@ const FILES_TO_CACHE = [
   './finisher.png',
   './geloseco.png',
   './tintaspremium.png',
-  './aditivosevernizes.png',
-  './proteçãoceramica.png',
+  './diluentesevernizes.png',
+  './protecaoceramica.png',
   './produtosdelimpeza.png',
   './polidoresespeciais.png'
 ];
@@ -46,6 +46,16 @@ self.addEventListener('install', (evt) => {
 // Ativação e Limpeza de caches antigos (se necessário)
 self.addEventListener('activate', (evt) => {
   console.log('[ServiceWorker] Ativado');
+  evt.waitUntil(
+    caches.keys().then((keyList) => {
+      return Promise.all(keyList.map((key) => {
+        if (key !== CACHE_NAME) {
+          console.log('[ServiceWorker] Removendo cache antigo', key);
+          return caches.delete(key);
+        }
+      }));
+    })
+  );
   self.clients.claim();
 });
 
