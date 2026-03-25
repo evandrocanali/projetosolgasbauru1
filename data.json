@@ -1,0 +1,69 @@
+{
+    "hero": {
+        "title": "Excelência em Estética Automotiva, Tintas, Complementos Automotivos e Gelo Seco",
+        "subtitle": "Produtos premium para transformar seu veículo",
+        "highlight": "Referência em Proteção Cerâmica, produtos de estética automotiva, funilaria e pintura e gelo seco em Bauru e região"
+    },
+    "about": {
+        "title": "Sobre a Solgas",
+        "text1": "Com anos de experiência no mercado automotivo, a Solgas é especializada em oferecer soluções premium para pintura e estética automotiva.",
+        "text2": "Nossos produtos são escolhidos criteriosamente para garantir a máxima qualidade e durabilidade. Contamos com uma equipe de profissionais altamente treinados e equipamentos de ponta.",
+        "stats": [
+            {"label": "Clientes Satisfeitos", "value": "500+"},
+            {"label": "Satisfação Garantida", "value": "100%"}
+        ]
+    },
+    "products": [
+        {
+            "id": 1,
+            "title": "Gelo Seco",
+            "desc": "Solução ideal para refrigeração, transporte de perecíveis e efeitos especiais.",
+            "image": "geloseco.png",
+            "catalog": []
+        },
+        {
+            "id": 2,
+            "title": "Tintas Premium",
+            "desc": "Tintas automotivas de alta qualidade com excelente cobertura e durabilidade.",
+            "image": "tintaspremium.png",
+            "catalog": []
+        },
+        {
+            "id": 3,
+            "title": "Diluentes e Vernizes",
+            "desc": "Diluentes especiais e vernizes para proteção e brilho duradouro.",
+            "image": "aditivosevernizes.png",
+            "catalog": []
+        },
+        {
+            "id": 4,
+            "title": "Proteção Cerâmica",
+            "desc": "Revestimento cerâmico para proteção extrema e brilho espelhado.",
+            "image": "proteçãoceramica.png",
+            "catalog": []
+        },
+        {
+            "id": 5,
+            "title": "Produtos de Limpeza",
+            "desc": "Limpadores específicos para manutenção e conservação de pintura.",
+            "image": "produtosdelimpeza.png",
+            "catalog": []
+        },
+        {
+            "id": 6,
+            "title": "Polidores Especiais",
+            "desc": "Polimentos que corrigem imperfeições e devolvem o brilho original.",
+            "image": "polidoresespeciais.png",
+            "catalog": []
+        }
+    ],
+    "contact": {
+        "address": "Rua Benedito Ribeiro dos Santos 8-6, Geisel, Bauru - SP",
+        "phone": "(14) 98122-3322",
+        "email": "contato@solgas.com.br",
+        "hours": "Seg-Sex: 07h30 - 12h00 / 13h20 - 18h00"
+    },
+    "media": {
+        "videos": []
+    }
+}
