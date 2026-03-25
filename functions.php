@@ -32,7 +32,7 @@ function saveData($data) {
 }
 
 /**
- * Processa upload de arquivos
+ * Processa upload de arquivos e retorna como string Base64 para salvar no JSON
  */
 function handleUpload($file) {
     if (!$file || $file['error'] !== UPLOAD_ERR_OK) {
@@ -46,13 +46,19 @@ function handleUpload($file) {
         return null;
     }
 
-    $filename = time() . '_' . basename($file['name']);
-    $target = UPLOAD_DIR . $filename;
-
-    if (move_uploaded_file($file['tmp_name'], $target)) {
-        return 'uploads/' . $filename;
+    // Lê o conteúdo do arquivo temporário
+    $data = file_get_contents($file['tmp_name']);
+    if ($data === false) {
+        return null;
     }
 
-    return null;
+    // Detecta o tipo MIME para formar a data URI
+    $mimeType = $file['type'] ?: 'image/' . strtolower($ext);
+    
+    // Converte para Base64
+    $base64 = base64_encode($data);
+    
+    // Retorna a string completa que pode ser usada no src de tags <img> ou <video>
+    return 'data:' . $mimeType . ';base64,' . $base64;
 }
 ?>
