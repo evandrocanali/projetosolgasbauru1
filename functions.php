@@ -4,12 +4,8 @@
  */
 
 define('DATA_FILE', __DIR__ . '/data.json');
+// Diretorios de upload via Base64 agora, UPLOAD_DIR definido apenas para referencia
 define('UPLOAD_DIR', __DIR__ . '/uploads/');
-
-// Garante que o diretório de uploads existe
-if (!is_dir(UPLOAD_DIR)) {
-    mkdir(UPLOAD_DIR, 0777, true);
-}
 
 /**
  * Carrega os dados do arquivo JSON

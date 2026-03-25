@@ -4,11 +4,11 @@
     "api/*.php": { "runtime": "vercel-php@0.7.2" }
   },
   "rewrites": [
-    { "source": "/", "destination": "api/index.php" },
-    { "source": "/index.php", "destination": "api/index.php" },
-    { "source": "/product.php", "destination": "api/product.php" },
-    { "source": "/login.php", "destination": "api/login.php" },
-    { "source": "/admin.php", "destination": "api/admin.php" },
-    { "source": "/logout.php", "destination": "api/logout.php" }
+    { "source": "/", "destination": "/api/index.php" },
+    { "source": "/index.php", "destination": "/api/index.php" },
+    { "source": "/product.php", "destination": "/api/product.php" },
+    { "source": "/login.php", "destination": "/api/login.php" },
+    { "source": "/admin.php", "destination": "/api/admin.php" },
+    { "source": "/logout.php", "destination": "/api/logout.php" }
   ]
 }
