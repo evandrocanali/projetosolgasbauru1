@@ -4,8 +4,12 @@
  */
 
 define('DATA_FILE', __DIR__ . '/data.json');
-// Diretorios de upload via Base64 agora, UPLOAD_DIR definido apenas para referencia
 define('UPLOAD_DIR', __DIR__ . '/uploads/');
+
+// Garante que o diretório de uploads existe
+if (!is_dir(UPLOAD_DIR)) {
+    mkdir(UPLOAD_DIR, 0777, true);
+}
 
 /**
  * Carrega os dados do arquivo JSON
@@ -28,7 +32,7 @@ function saveData($data) {
 }
 
 /**
- * Processa upload de arquivos e retorna como string Base64 para salvar no JSON
+ * Processa upload de arquivos
  */
 function handleUpload($file) {
     if (!$file || $file['error'] !== UPLOAD_ERR_OK) {
@@ -36,25 +40,13 @@ function handleUpload($file) {
     }
 
     $ext = pathinfo($file['name'], PATHINFO_EXTENSION);
-    $allowed = ['jpg', 'jpeg', 'png', 'gif', 'mp4', 'webp'];
-    
-    if (!in_array(strtolower($ext), $allowed)) {
-        return null;
+    $filename = uniqid() . '.' . $ext;
+    $targetPath = UPLOAD_DIR . $filename;
+
+    if (move_uploaded_file($file['tmp_name'], $targetPath)) {
+        return 'uploads/' . $filename;
     }
 
-    // Lê o conteúdo do arquivo temporário
-    $data = file_get_contents($file['tmp_name']);
-    if ($data === false) {
-        return null;
-    }
-
-    // Detecta o tipo MIME para formar a data URI
-    $mimeType = $file['type'] ?: 'image/' . strtolower($ext);
-    
-    // Converte para Base64
-    $base64 = base64_encode($data);
-    
-    // Retorna a string completa que pode ser usada no src de tags <img> ou <video>
-    return 'data:' . $mimeType . ';base64,' . $base64;
+    return null;
 }
 ?>
