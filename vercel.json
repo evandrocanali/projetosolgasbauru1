@@ -1,13 +1,14 @@
 {
   "cleanUrls": true,
   "functions": {
-    "index.php": { "runtime": "vercel-php@0.7.2" },
-    "admin.php": { "runtime": "vercel-php@0.7.2" },
-    "product.php": { "runtime": "vercel-php@0.7.2" },
-    "login.php": { "runtime": "vercel-php@0.7.2" },
-    "logout.php": { "runtime": "vercel-php@0.7.2" }
+    "api/*.php": { "runtime": "vercel-php@0.7.2" }
   },
   "rewrites": [
-    { "source": "/", "destination": "index.php" }
+    { "source": "/", "destination": "/api/index.php" },
+    { "source": "/index.php", "destination": "/api/index.php" },
+    { "source": "/admin", "destination": "/api/admin.php" },
+    { "source": "/product", "destination": "/api/product.php" },
+    { "source": "/login", "destination": "/api/login.php" },
+    { "source": "/logout", "destination": "/api/logout.php" }
   ]
 }
