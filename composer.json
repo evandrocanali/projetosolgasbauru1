@@ -1,0 +1,7 @@
+{
+    "name": "evandrocanali/projetosolgasbauru1",
+    "description": "Website Solgas",
+    "require": {
+        "php": ">=7.4"
+    }
+}
