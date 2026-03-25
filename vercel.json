@@ -1,19 +1,4 @@
 {
-  "functions": {
-    "api/*.php": {
-      "runtime": "vercel-php@0.7.0"
-    }
-  },
-  "routes": [
-    { "src": "/api/index.php", "dest": "/api/index.php" },
-    { "src": "/api/admin.php", "dest": "/api/admin.php" },
-    { "src": "/api/login.php", "dest": "/api/login.php" },
-    { "src": "/api/logout.php", "dest": "/api/logout.php" },
-    { "src": "/api/product.php", "dest": "/api/product.php" },
-    { "src": "/admin", "dest": "/api/admin.php" },
-    { "src": "/login", "dest": "/api/login.php" },
-    { "src": "/logout", "dest": "/api/logout.php" },
-    { "src": "/product", "dest": "/api/product.php" },
-    { "src": "/(.*)", "dest": "/api/index.php" }
-  ]
+  "version": 2,
+  "cleanUrls": true
 }
